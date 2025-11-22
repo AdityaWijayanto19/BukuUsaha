@@ -17,3 +17,6 @@ Route::get('/dashboard', function () {
 Route::get('/mycatatan', function () {
     return view('pages.mycatatan');
 });
+Route::get('/pendaftaran', function () {
+    return view('pages.pendaftaran');
+});

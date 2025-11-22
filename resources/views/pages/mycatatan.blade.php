@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catatan Saya - Buku Usaha</title>
 
-    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables untuk tema dinamis (konsisten dengan Dashboard) */
         :root {
-            --color-primary: #800000; /* Maroon Default */
+            --color-primary: #800000; 
             --color-secondary: #4A5568;
             --color-success: #28A745;
             --color-danger: #DC3545;
@@ -25,7 +22,6 @@
         .theme-green { --color-primary: #16a34a; }
         .theme-maroon { --color-primary: #800000; }
 
-        /* Custom styles untuk Drag & Drop dan animasi */
         #notes-grid .note-card {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
@@ -42,7 +38,6 @@
             border: 2px dashed var(--color-primary);
             background-color: rgba(128, 0, 0, 0.05);
         }
-        /* Animasi untuk modal */
         .modal-enter {
             animation: fadeIn 0.3s ease-out forwards;
         }
@@ -60,7 +55,6 @@
     </style>
 
     <script>
-      // Konfigurasi Tailwind untuk menggunakan CSS Variables
       tailwind.config = {
         theme: {
           extend: {
@@ -81,7 +75,6 @@
 <body class="bg-gray-100">
 
     <div class="flex h-screen">
-        <!-- Sidebar (Sama seperti Dashboard, menu aktif diubah) -->
         <aside class="w-64 bg-white shadow-md hidden md:block">
             <div class="p-6">
                 <h1 class="text-2xl font-bold text-primary">Buku Usaha</h1>
@@ -91,7 +84,6 @@
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                     <span class="mx-3">Dashboard</span>
                 </a>
-                <!-- MENU AKTIF -->
                 <a href="#" class="flex items-center px-6 py-3 bg-gray-200 text-primary font-bold">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                     <span class="mx-3">Catatan Saya</span>
@@ -111,9 +103,7 @@
             </nav>
         </aside>
 
-        <!-- Main Content -->
         <div class="flex-1 flex flex-col overflow-hidden">
-            <!-- Topbar (Sama seperti Dashboard) -->
             <header class="flex justify-between items-center p-4 bg-white border-b flex-shrink-0">
                 <div>
                     <span class="text-sm text-gray-500">Usaha Aktif:</span>
@@ -127,9 +117,7 @@
                 </div>
             </header>
 
-            <!-- Content Area -->
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
-                <!-- Page Header -->
                 <div class="flex justify-between items-center mb-6">
                     <h1 class="text-3xl font-bold text-gray-800">Catatan Saya</h1>
                     <button id="create-note-btn" class="flex items-center px-4 py-2 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-transform hover:scale-105 shadow-lg">
@@ -138,10 +126,7 @@
                     </button>
                 </div>
 
-                <!-- Notes Grid -->
                 <div id="notes-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    <!-- Catatan akan dirender oleh JavaScript di sini -->
-                    <!-- Contoh Tampilan Kartu (dummy) -->
                     <div class="bg-white p-5 rounded-lg shadow border-l-4 border-yellow-500 hidden">
                         <div class="flex justify-between items-start">
                             <h3 class="font-bold text-lg text-gray-800">Review Keuangan Mingguan</h3>
@@ -159,7 +144,6 @@
                     </div>
                 </div>
 
-                <!-- Pesan jika tidak ada catatan -->
                 <div id="empty-state" class="hidden text-center py-20">
                     <svg xmlns="http://www.w3.org/2000/svg" class="mx-auto h-24 w-24 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                     <h3 class="mt-4 text-xl font-semibold text-gray-700">Belum Ada Catatan</h3>
@@ -169,10 +153,8 @@
         </div>
     </div>
     
-    <!-- Create Note Modal -->
     <div id="create-note-modal" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 hidden">
         <div id="modal-content" class="bg-white rounded-lg shadow-xl w-full max-w-2xl transform transition-all">
-            <!-- Step 1: Pilih Jenis Catatan -->
             <div id="modal-step-1" class="p-8">
                 <div class="flex justify-between items-center">
                     <h3 class="text-2xl font-bold text-gray-800">Pilih Jenis Catatan</h3>
@@ -195,9 +177,7 @@
                 </div>
             </div>
 
-            <!-- Step 2: Form Input -->
             <div id="modal-step-2" class="hidden">
-                <!-- Header akan di-inject oleh JS -->
                 <div id="modal-form-header" class="flex justify-between items-center p-6 border-b">
                     <div class="flex items-center">
                          <button id="back-to-step-1" class="p-2 mr-4 rounded-full hover:bg-gray-100">
@@ -207,9 +187,7 @@
                     </div>
                     <button id="close-modal-btn-2" class="text-gray-400 hover:text-gray-600 text-3xl">&times;</button>
                 </div>
-                <!-- Form Body akan di-inject oleh JS -->
                 <div id="modal-form-body" class="p-6 max-h-[60vh] overflow-y-auto"></div>
-                <!-- Footer -->
                 <div class="flex justify-end p-4 bg-gray-50 border-t rounded-b-lg">
                     <button id="save-note-btn" class="px-6 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90">Simpan Catatan</button>
                 </div>
@@ -217,7 +195,6 @@
         </div>
     </div>
 
-    <!-- Templates for Form Bodies -->
     <template id="form-template-keuangan">
         <div class="space-y-4">
             <div>
@@ -240,7 +217,6 @@
             <div>
                 <label class="text-sm font-medium text-gray-700">Daftar Barang</label>
                 <div id="inventory-items" class="mt-2 space-y-3">
-                    <!-- Item akan di-inject oleh JS -->
                 </div>
                 <button id="add-inventory-item-btn" type="button" class="mt-3 text-sm font-semibold text-primary hover:underline">+ Tambah Barang</button>
             </div>
@@ -262,14 +238,12 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // --- THEME LOGIC (from Dashboard) ---
         const root = document.documentElement;
         const savedTheme = localStorage.getItem('buku-usaha-theme') || 'theme-maroon';
         if (savedTheme) {
             root.classList.add(savedTheme);
         }
 
-        // --- DOM ELEMENTS ---
         const notesGrid = document.getElementById('notes-grid');
         const emptyState = document.getElementById('empty-state');
         const createNoteBtn = document.getElementById('create-note-btn');
@@ -285,7 +259,6 @@
         const modalFormHeader = document.getElementById('modal-form-header');
         const modalFormBody = document.getElementById('modal-form-body');
 
-        // --- STATE MANAGEMENT ---
         let notes = JSON.parse(localStorage.getItem('buku-usaha-notes')) || [];
         let currentNoteType = null;
         
@@ -295,7 +268,6 @@
             lainnya: { color: 'purple-500', bgColor: 'purple-100', textColor: 'purple-800', label: 'Lainnya' }
         };
 
-        // --- RENDER FUNCTION ---
         const renderNotes = () => {
             notesGrid.innerHTML = '';
             if (notes.length === 0) {
@@ -343,7 +315,6 @@
             renderNotes();
         };
 
-        // --- MODAL LOGIC ---
         const openModal = () => {
             modal.classList.remove('hidden');
             modalContent.classList.remove('modal-leave');
@@ -377,7 +348,7 @@
                 
                 if (currentNoteType === 'inventaris') {
                     document.getElementById('add-inventory-item-btn').addEventListener('click', addInventoryItem);
-                    addInventoryItem(); // Add the first item row automatically
+                    addInventoryItem(); 
                 }
 
                 step1.classList.add('hidden');
@@ -385,7 +356,6 @@
             });
         });
 
-        // --- INVENTORY FORM LOGIC ---
         const addInventoryItem = () => {
             const container = document.getElementById('inventory-items');
             const itemRow = document.createElement('div');
@@ -405,7 +375,6 @@
             itemRow.querySelector('.remove-item-btn').addEventListener('click', () => itemRow.remove());
         };
 
-        // --- SAVE NOTE LOGIC ---
         saveNoteBtn.addEventListener('click', () => {
             const title = modalFormBody.querySelector('#note-title').value.trim();
             if (!title) {
@@ -434,12 +403,11 @@
                 newNote.content = modalFormBody.querySelector('#note-content').value.trim();
             }
 
-            notes.unshift(newNote); // Add to the beginning
+            notes.unshift(newNote);
             saveAndRender();
             closeModal();
         });
 
-        // --- DELETE NOTE LOGIC ---
         notesGrid.addEventListener('click', e => {
             if (e.target.closest('.delete-note-btn')) {
                 const btn = e.target.closest('.delete-note-btn');
@@ -451,7 +419,6 @@
             }
         });
         
-        // --- DRAG & DROP LOGIC ---
         let draggedItem = null;
 
         notesGrid.addEventListener('dragstart', e => {
@@ -468,7 +435,6 @@
                 draggedItem.classList.remove('dragging');
                 draggedItem = null;
 
-                // Update the notes array order
                 const newOrderIds = [...notesGrid.querySelectorAll('.note-card')].map(card => parseInt(card.dataset.id));
                 notes.sort((a, b) => newOrderIds.indexOf(a.id) - newOrderIds.indexOf(b.id));
                 saveAndRender();
@@ -499,7 +465,6 @@
             }, { offset: Number.NEGATIVE_INFINITY }).element;
         }
 
-        // --- INITIAL RENDER ---
         renderNotes();
     });
     </script>

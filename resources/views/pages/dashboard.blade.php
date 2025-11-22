@@ -5,31 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Buku Usaha</title>
 
-    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* CSS Variables untuk tema dinamis */
         :root {
-            --color-primary: #800000; /* Maroon Default */
+            --color-primary: #800000; 
             --color-secondary: #4A5568;
             --color-success: #28A745;
             --color-danger: #DC3545;
         }
 
-        /* Kelas tema */
         .theme-blue { --color-primary: #2563eb; }
         .theme-green { --color-primary: #16a34a; }
         .theme-maroon { --color-primary: #800000; }
     </style>
 
     <script>
-      // Konfigurasi Tailwind untuk menggunakan CSS Variables
       tailwind.config = {
         theme: {
           extend: {
@@ -50,7 +45,6 @@
 <body class="bg-gray-100">
 
     <div class="flex h-screen">
-        <!-- Sidebar -->
         <aside class="w-64 bg-white shadow-md hidden md:block">
             <div class="p-6">
                 <h1 class="text-2xl font-bold text-primary">Buku Usaha</h1>
@@ -75,9 +69,7 @@
             </nav>
         </aside>
 
-        <!-- Main Content -->
         <div class="flex-1 flex flex-col overflow-hidden">
-            <!-- Topbar -->
             <header class="flex justify-between items-center p-4 bg-white border-b">
                 <div>
                     <span class="text-sm text-gray-500">Usaha Aktif:</span>
@@ -91,13 +83,10 @@
                 </div>
             </header>
 
-            <!-- Content Area -->
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    <!-- Left/Main Column -->
                     <div class="lg:col-span-2 space-y-6">
 
-                        <!-- Summary Cards Widget -->
                         <div id="widget-summary" class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="bg-white p-6 rounded-lg shadow">
                                 <h3 class="text-sm font-medium text-gray-500">Pemasukan Hari Ini</h3>
@@ -113,7 +102,6 @@
                             </div>
                         </div>
 
-                        <!-- Recent Transactions -->
                         <div class="bg-white p-6 rounded-lg shadow">
                             <div class="flex justify-between items-center mb-4">
                                 <h3 class="text-xl font-semibold">Transaksi Terbaru</h3>
@@ -156,7 +144,6 @@
                             </div>
                         </div>
 
-                         <!-- Dummy Chart Widget -->
                          <div id="widget-chart" class="bg-white p-6 rounded-lg shadow">
                             <h3 class="text-xl font-semibold mb-4">Grafik Keuangan (7 Hari Terakhir)</h3>
                             <div class="bg-gray-100 h-64 rounded-lg flex items-center justify-center">
@@ -165,10 +152,8 @@
                          </div>
                     </div>
 
-                    <!-- Right Column -->
                     <div class="lg:col-span-1 space-y-6">
 
-                        <!-- Onboarding Panel -->
                         <div id="onboarding-panel" class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg shadow">
                             <h4 class="font-bold text-blue-800">Langkah Awal Menggunakan Buku Usaha</h4>
                             <p class="text-sm text-blue-700 mt-2 mb-4">Ikuti panduan singkat ini untuk memulai.</p>
@@ -181,11 +166,9 @@
                             <button id="dismiss-onboarding" class="mt-4 w-full text-center py-2 bg-blue-500 text-white rounded-lg text-sm font-semibold hover:bg-blue-600">Saya Mengerti</button>
                         </div>
 
-                        <!-- Theme Settings Panel -->
                         <div class="bg-white p-6 rounded-lg shadow">
                              <h4 class="font-bold text-gray-800 mb-4">Pengaturan Tampilan</h4>
                              
-                             <!-- Pilih Warna Tema -->
                              <div class="mb-6">
                                 <label class="text-sm font-semibold text-gray-600">Pilih Warna Tema</label>
                                 <div id="theme-selector" class="flex space-x-3 mt-2">
@@ -204,7 +187,6 @@
                                 </div>
                              </div>
 
-                             <!-- Tampilkan/Sembunyikan Widget -->
                              <div>
                                  <label class="text-sm font-semibold text-gray-600">Tampilkan/Sembunyikan Widget</label>
                                  <div id="widget-settings" class="space-y-2 mt-2">
@@ -229,15 +211,12 @@
         </div>
     </div>
     
-    <!-- Add Transaction Modal -->
     <div id="add-transaction-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden">
         <div class="bg-white rounded-lg shadow-xl w-full max-w-md">
-            <!-- Modal Header -->
             <div class="flex justify-between items-center p-4 border-b">
                 <h3 class="text-xl font-semibold">Tambah Transaksi Baru</h3>
                 <button id="close-modal-btn" class="text-gray-400 hover:text-gray-600">&times;</button>
             </div>
-            <!-- Modal Body -->
             <div class="p-6 space-y-4">
                 <div>
                     <label class="text-sm font-medium">Jenis Transaksi</label>
@@ -261,7 +240,6 @@
                     <input type="text" id="description" class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary" placeholder="Contoh: Laundry Kiloan">
                 </div>
             </div>
-            <!-- Modal Footer -->
             <div class="flex justify-end p-4 bg-gray-50 border-t rounded-b-lg">
                 <button class="px-6 py-2 bg-primary text-white font-semibold rounded-lg hover:bg-primary/90">Simpan</button>
             </div>
@@ -272,7 +250,6 @@
     <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-        // --- ONBOARDING PANEL LOGIC ---
         const onboardingPanel = document.getElementById('onboarding-panel');
         const dismissOnboardingBtn = document.getElementById('dismiss-onboarding');
         
@@ -283,22 +260,18 @@
         }
 
 
-        // --- THEME CUSTOMIZATION LOGIC ---
         const themeSelector = document.getElementById('theme-selector');
         const themeRadios = document.querySelectorAll('input[name="theme"]');
         const root = document.documentElement;
 
         function applyTheme(themeClass) {
-            // Hapus semua kelas tema yang mungkin ada
             root.classList.remove('theme-maroon', 'theme-blue', 'theme-green');
-            // Tambahkan kelas tema yang baru
+          
             if (themeClass) {
                 root.classList.add(themeClass);
             }
-            // Simpan ke localStorage
             localStorage.setItem('buku-usaha-theme', themeClass);
             
-            // Update UI radio button
              themeRadios.forEach(radio => {
                 const radioDiv = radio.nextElementSibling;
                 if (radio.value === themeClass) {
@@ -310,11 +283,9 @@
             });
         }
 
-        // Muat tema dari localStorage saat halaman dibuka
         const savedTheme = localStorage.getItem('buku-usaha-theme') || 'theme-maroon';
         applyTheme(savedTheme);
 
-        // Tambah event listener ke setiap radio button
         themeRadios.forEach(radio => {
             radio.addEventListener('change', (event) => {
                 applyTheme(event.target.value);
@@ -322,21 +293,18 @@
         });
 
 
-        // --- WIDGET VISIBILITY LOGIC ---
         const widgetCheckboxes = document.querySelectorAll('#widget-settings input[type="checkbox"]');
 
         widgetCheckboxes.forEach(checkbox => {
             const widgetId = checkbox.dataset.widget;
             const widget = document.getElementById(widgetId);
 
-            // Set initial state from localStorage
             const isVisible = localStorage.getItem(widgetId) !== 'hidden';
             checkbox.checked = isVisible;
             if (!isVisible) {
                 widget.classList.add('hidden');
             }
 
-            // Add event listener for changes
             checkbox.addEventListener('change', () => {
                 if (checkbox.checked) {
                     widget.classList.remove('hidden');
@@ -348,7 +316,6 @@
             });
         });
         
-        // --- MODAL LOGIC ---
         const modal = document.getElementById('add-transaction-modal');
         const addTransactionBtn = document.getElementById('add-transaction-btn');
         const closeModalBtn = document.getElementById('close-modal-btn');
@@ -361,7 +328,6 @@
             modal.classList.add('hidden');
         });
 
-        // Klik di luar modal untuk menutup
         modal.addEventListener('click', (event) => {
             if (event.target === modal) {
                 modal.classList.add('hidden');

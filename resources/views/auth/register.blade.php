@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daftar - Buku Usaha</title>
     
-    <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <script>
-      // Konfigurasi custom untuk Tailwind CSS
       tailwind.config = {
         theme: {
           extend: {
@@ -22,10 +19,10 @@
               sans: ['Poppins', 'system-ui', 'sans-serif'],
             },
             colors: {
-              'primary': '#800000',   // Maroon Klasik
-              'secondary': '#4A5568', // Abu-abu Biru
-              'success': '#28A745',   // Hijau Stabil (Income)
-              'danger': '#DC3545',    // Merah Alarm (Expense)
+              'primary': '#800000',   
+              'secondary': '#4A5568', 
+              'success': '#28A745',  
+              'danger': '#DC3545',    
             }
           }
         }
@@ -37,7 +34,6 @@
     <div class="flex items-center justify-center min-h-screen">
         <div class="w-full max-w-4xl flex flex-col m-6 bg-white shadow-xl rounded-2xl md:flex-row">
             
-            <!-- Left Side: Register Form -->
             <div class="w-full md:w-1/2 p-8 md:p-12">
                 <a href="#" class="text-2xl font-bold text-primary">Buku Usaha</a>
                 <h1 class="mt-6 text-3xl font-bold text-gray-900">Buat Akun Baru</h1>
@@ -99,7 +95,6 @@
                 </div>
             </div>
 
-            <!-- Right Side: Info Panel -->
             <div class="w-full md:w-1/2 bg-primary rounded-r-2xl hidden md:flex items-center justify-center p-12">
                 <div class="text-white">
                     <h2 class="text-3xl font-bold">Hanya beberapa langkah lagi!</h2>
@@ -133,7 +128,6 @@
             const passwordInput = document.getElementById('password');
             const confirmPasswordInput = document.getElementById('confirm-password');
 
-            // --- Password Visibility Toggle for both fields ---
             document.querySelectorAll('.password-toggle').forEach(toggle => {
                 toggle.addEventListener('click', (event) => {
                     const button = event.currentTarget;
@@ -153,7 +147,6 @@
                 });
             });
 
-            // --- Validation Functions ---
             function validateRequired(input, errorElement, message) {
                 if (input.value.trim() === '') {
                     errorElement.textContent = message;
@@ -195,13 +188,11 @@
                 return true;
             }
             
-            // --- Attach blur listeners ---
             nameInput.addEventListener('blur', () => validateRequired(nameInput, document.getElementById('name-error'), 'Nama wajib diisi.'));
             emailInput.addEventListener('blur', () => validateEmail(emailInput, document.getElementById('email-error')));
             passwordInput.addEventListener('blur', () => validatePassword(passwordInput, document.getElementById('password-error')));
             confirmPasswordInput.addEventListener('blur', () => validateConfirmPassword(passwordInput, confirmPasswordInput, document.getElementById('confirm-password-error')));
 
-            // --- Form Submission Logic ---
             registerForm.addEventListener('submit', (event) => {
                 event.preventDefault();
                 
@@ -221,7 +212,7 @@
                     
                     setTimeout(() => {
                         alert('Pendaftaran berhasil! Anda akan diarahkan ke dashboard.');
-                        window.location.href = '#'; // Ganti dengan URL dashboard
+                        window.location.href = '#'; 
                     }, 2000);
                 }
             });
