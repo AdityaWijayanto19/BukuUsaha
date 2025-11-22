@@ -14,3 +14,6 @@ Route::get('/register', function () {
 Route::get('/dashboard', function () {
     return view('pages.dashboard');
 });
+Route::get('/mycatatan', function () {
+    return view('pages.mycatatan');
+});

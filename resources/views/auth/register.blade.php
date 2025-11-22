@@ -32,121 +32,197 @@
       }
     </script>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100">
 
     <div class="flex items-center justify-center min-h-screen">
-        <div class="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+        <div class="w-full max-w-4xl flex flex-col m-6 bg-white shadow-xl rounded-2xl md:flex-row">
+            
             <!-- Left Side: Register Form -->
-            <div class="flex flex-col justify-center p-8 md:p-14">
-                <span class="mb-3 text-4xl font-bold">Buat Akun Baru</span>
-                <span class="font-light text-gray-500 mb-8">
-                    Daftar gratis untuk mulai mencatat keuangan usaha Anda.
-                </span>
+            <div class="w-full md:w-1/2 p-8 md:p-12">
+                <a href="#" class="text-2xl font-bold text-primary">Buku Usaha</a>
+                <h1 class="mt-6 text-3xl font-bold text-gray-900">Buat Akun Baru</h1>
+                <p class="mt-2 text-gray-600">Daftar gratis untuk mulai mengelola usaha Anda.</p>
                 
-                <form id="registerForm">
-                    <div class="py-2">
-                        <label for="name" class="mb-2 text-md font-medium">Nama Lengkap</label>
-                        <input type="text" id="name" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary">
-                        <span id="name-error" class="text-danger text-sm mt-1 hidden">Nama tidak boleh kosong.</span>
+                <form id="registerForm" class="mt-8 space-y-4">
+                    <div>
+                        <label for="name" class="block mb-2 text-sm font-medium text-gray-700">Nama Lengkap</label>
+                        <input type="text" id="name"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                            placeholder="Contoh: Budi Santoso">
+                        <span id="name-error" class="text-danger text-xs mt-1 hidden">Nama wajib diisi.</span>
                     </div>
-                    <div class="py-2">
-                        <label for="email" class="mb-2 text-md font-medium">Email</label>
-                        <input type="email" id="email" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary">
-                        <span id="email-error" class="text-danger text-sm mt-1 hidden">Email tidak valid atau kosong.</span>
+
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="email"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                            placeholder="contoh@usahaku.com">
+                        <span id="email-error" class="text-danger text-xs mt-1 hidden">Format email tidak valid.</span>
                     </div>
-                    <div class="py-2">
-                        <label for="password" class="mb-2 text-md font-medium">Password</label>
-                        <input type="password" id="password" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary">
-                        <span id="password-error" class="text-danger text-sm mt-1 hidden">Password minimal 6 karakter.</span>
+                    
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-700">Password</label>
+                        <div class="relative">
+                            <input type="password" id="password"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                            <button type="button" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500 password-toggle">
+                                <svg class="eye-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                                <svg class="eye-off-icon hidden" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7 .527-1.662 1.49-3.14 2.694-4.306M14 14l-4-4m-4 0a9.954 9.954 0 011.666-3.033M17.583 6.417A9.953 9.953 0 0119.542 12c-1.274 4.057-5.064 7-9.542 7a10.05 10.05 0 01-1.875-.175" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1l22 22" /></svg>
+                            </button>
+                        </div>
+                        <span id="password-error" class="text-danger text-xs mt-1 hidden">Password minimal 8 karakter.</span>
                     </div>
-                     <div class="py-2">
-                        <label for="confirmPassword" class="mb-2 text-md font-medium">Konfirmasi Password</label>
-                        <input type="password" id="confirmPassword" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-primary">
-                        <span id="confirmPassword-error" class="text-danger text-sm mt-1 hidden">Password tidak cocok.</span>
+
+                    <div>
+                        <label for="confirm-password" class="block mb-2 text-sm font-medium text-gray-700">Konfirmasi Password</label>
+                        <div class="relative">
+                            <input type="password" id="confirm-password"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                             <button type="button" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500 password-toggle">
+                                <svg class="eye-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                                <svg class="eye-off-icon hidden" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7 .527-1.662 1.49-3.14 2.694-4.306M14 14l-4-4m-4 0a9.954 9.954 0 011.666-3.033M17.583 6.417A9.953 9.953 0 0119.542 12c-1.274 4.057-5.064 7-9.542 7a10.05 10.05 0 01-1.875-.175" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1l22 22" /></svg>
+                            </button>
+                        </div>
+                        <span id="confirm-password-error" class="text-danger text-xs mt-1 hidden">Password tidak cocok.</span>
                     </div>
 
                     <button type="submit"
-                        class="w-full bg-primary text-white p-3 rounded-lg my-6 hover:bg-black hover:text-white transition-colors">
-                        Daftar Sekarang
+                        class="w-full flex justify-center items-center bg-primary text-white py-3 mt-4 rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:bg-primary/70">
+                        <span class="btn-text">Daftar Akun</span>
+                        <svg class="animate-spin h-5 w-5 text-white hidden btn-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                     </button>
                 </form>
-                <p class="text-xs text-gray-400 text-center">Dengan mendaftar, Anda setuju dengan <a href="#" class="text-primary hover:underline">Syarat & Ketentuan</a> Buku Usaha.</p>
 
-                <div class="text-center text-gray-500 mt-6">
-                    Sudah punya akun?
-                    <a href="#" class="font-bold text-primary hover:underline">Masuk di sini</a>
+                <div class="mt-6 text-center text-sm">
+                    <span class="text-gray-600">Sudah punya akun?</span>
+                    <a href="#" class="font-semibold text-primary hover:underline">Masuk di sini</a>
                 </div>
             </div>
 
-            <!-- Right Side: Educational Panel -->
-            <div class="relative bg-primary rounded-r-2xl hidden md:block">
-                 <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white p-12 w-[450px]">
-                    <h2 class="text-3xl font-bold mb-6">Langkah Selanjutnya...</h2>
-                    <p class="text-lg font-light leading-relaxed mb-6">Setelah mendaftar, Anda akan kami pandu untuk:</p>
-                    <ul class="space-y-4 text-left font-light">
+            <!-- Right Side: Info Panel -->
+            <div class="w-full md:w-1/2 bg-primary rounded-r-2xl hidden md:flex items-center justify-center p-12">
+                <div class="text-white">
+                    <h2 class="text-3xl font-bold">Hanya beberapa langkah lagi!</h2>
+                    <p class="mt-2 text-white/80 mb-8">Setelah mendaftar, Anda bisa langsung:</p>
+                    <ul class="space-y-6">
                         <li class="flex items-start">
-                            <span class="flex items-center justify-center font-bold text-primary bg-white rounded-full w-8 h-8 mr-4">1</span>
-                            <span>Menambahkan usaha pertama Anda (misal: "Laundry Melati", "Warung Bu Siti").</span>
+                            <div class="flex-shrink-0 flex items-center justify-center w-8 h-8 bg-white/30 rounded-full font-bold text-white mr-4">1</div>
+                            <div>
+                                <h3 class="font-semibold">Tambahkan Usaha Anda</h3>
+                                <p class="text-white/80 text-sm">Masukkan nama usaha Anda, misalnya "Warung Makan Berkah".</p>
+                            </div>
                         </li>
-                        <li class="flex items-start">
-                            <span class="flex items-center justify-center font-bold text-primary bg-white rounded-full w-8 h-8 mr-4">2</span>
-                            <span>Mencatat pemasukan atau pengeluaran pertama Anda.</span>
+                         <li class="flex items-start">
+                            <div class="flex-shrink-0 flex items-center justify-center w-8 h-8 bg-white/30 rounded-full font-bold text-white mr-4">2</div>
+                            <div>
+                                <h3 class="font-semibold">Catat Transaksi Pertama</h3>
+                                <p class="text-white/80 text-sm">Mulai catat pemasukan dan pengeluaran harian.</p>
+                            </div>
                         </li>
                     </ul>
-                    <p class="mt-8 text-white/80 text-sm">Anda bisa menambahkan lebih dari satu usaha dalam satu akun. Tenang saja, semua bisa diatur nanti!</p>
                 </div>
             </div>
         </div>
     </div>
     
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', () => {
             const registerForm = document.getElementById('registerForm');
-            // Dapatkan semua input dan elemen error
             const nameInput = document.getElementById('name');
             const emailInput = document.getElementById('email');
             const passwordInput = document.getElementById('password');
-            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+
+            // --- Password Visibility Toggle for both fields ---
+            document.querySelectorAll('.password-toggle').forEach(toggle => {
+                toggle.addEventListener('click', (event) => {
+                    const button = event.currentTarget;
+                    const input = button.previousElementSibling;
+                    const eyeIcon = button.querySelector('.eye-icon');
+                    const eyeOffIcon = button.querySelector('.eye-off-icon');
+
+                    if (input.type === 'password') {
+                        input.type = 'text';
+                        eyeIcon.classList.add('hidden');
+                        eyeOffIcon.classList.remove('hidden');
+                    } else {
+                        input.type = 'password';
+                        eyeIcon.classList.remove('hidden');
+                        eyeOffIcon.classList.add('hidden');
+                    }
+                });
+            });
+
+            // --- Validation Functions ---
+            function validateRequired(input, errorElement, message) {
+                if (input.value.trim() === '') {
+                    errorElement.textContent = message;
+                    errorElement.classList.remove('hidden');
+                    return false;
+                }
+                errorElement.classList.add('hidden');
+                return true;
+            }
+
+            function validateEmail(input, errorElement) {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(input.value)) {
+                    errorElement.textContent = 'Format email tidak valid.';
+                    errorElement.classList.remove('hidden');
+                    return false;
+                }
+                errorElement.classList.add('hidden');
+                return true;
+            }
+
+            function validatePassword(input, errorElement) {
+                if (input.value.length < 8) {
+                    errorElement.textContent = 'Password minimal 8 karakter.';
+                    errorElement.classList.remove('hidden');
+                    return false;
+                }
+                errorElement.classList.add('hidden');
+                return true;
+            }
+
+            function validateConfirmPassword(pass1, pass2, errorElement) {
+                if (pass1.value !== pass2.value) {
+                    errorElement.textContent = 'Password tidak cocok.';
+                    errorElement.classList.remove('hidden');
+                    return false;
+                }
+                errorElement.classList.add('hidden');
+                return true;
+            }
             
-            const nameError = document.getElementById('name-error');
-            const emailError = document.getElementById('email-error');
-            const passwordError = document.getElementById('password-error');
-            const confirmPasswordError = document.getElementById('confirmPassword-error');
-            
-            registerForm.addEventListener('submit', function(event) {
+            // --- Attach blur listeners ---
+            nameInput.addEventListener('blur', () => validateRequired(nameInput, document.getElementById('name-error'), 'Nama wajib diisi.'));
+            emailInput.addEventListener('blur', () => validateEmail(emailInput, document.getElementById('email-error')));
+            passwordInput.addEventListener('blur', () => validatePassword(passwordInput, document.getElementById('password-error')));
+            confirmPasswordInput.addEventListener('blur', () => validateConfirmPassword(passwordInput, confirmPasswordInput, document.getElementById('confirm-password-error')));
+
+            // --- Form Submission Logic ---
+            registerForm.addEventListener('submit', (event) => {
                 event.preventDefault();
-                let isValid = true;
-
-                // Reset semua error
-                [nameError, emailError, passwordError, confirmPasswordError].forEach(e => e.classList.add('hidden'));
-
-                // Validasi Nama
-                if (nameInput.value.trim() === '') {
-                    nameError.classList.remove('hidden');
-                    isValid = false;
-                }
                 
-                // Validasi Email Sederhana
-                if (!emailInput.value.includes('@') || emailInput.value.trim() === '') {
-                    emailError.classList.remove('hidden');
-                    isValid = false;
-                }
-                
-                // Validasi Password
-                if (passwordInput.value.length < 6) {
-                    passwordError.classList.remove('hidden');
-                    isValid = false;
-                }
+                const isNameValid = validateRequired(nameInput, document.getElementById('name-error'), 'Nama wajib diisi.');
+                const isEmailValid = validateEmail(emailInput, document.getElementById('email-error'));
+                const isPasswordValid = validatePassword(passwordInput, document.getElementById('password-error'));
+                const isConfirmPasswordValid = validateConfirmPassword(passwordInput, confirmPasswordInput, document.getElementById('confirm-password-error'));
 
-                // Validasi Konfirmasi Password
-                if (passwordInput.value !== confirmPasswordInput.value || confirmPasswordInput.value === '') {
-                    confirmPasswordError.classList.remove('hidden');
-                    isValid = false;
-                }
+                if (isNameValid && isEmailValid && isPasswordValid && isConfirmPasswordValid) {
+                    const submitButton = registerForm.querySelector('button[type="submit"]');
+                    const btnText = submitButton.querySelector('.btn-text');
+                    const spinner = submitButton.querySelector('.btn-spinner');
 
-                if (isValid) {
-                    alert('Pendaftaran berhasil! Mengarahkan ke Dashboard...');
-                    window.location.href = '#'; // Ganti dengan link dashboard.html
+                    btnText.textContent = 'Memproses...';
+                    spinner.classList.remove('hidden');
+                    submitButton.disabled = true;
+                    
+                    setTimeout(() => {
+                        alert('Pendaftaran berhasil! Anda akan diarahkan ke dashboard.');
+                        window.location.href = '#'; // Ganti dengan URL dashboard
+                    }, 2000);
                 }
             });
         });

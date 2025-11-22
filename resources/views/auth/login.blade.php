@@ -32,101 +32,137 @@
       }
     </script>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-100">
 
     <div class="flex items-center justify-center min-h-screen">
-        <div class="relative flex flex-col m-6 space-y-8 bg-white shadow-2xl rounded-2xl md:flex-row md:space-y-0">
+        <div class="w-full max-w-4xl flex flex-col m-6 bg-white shadow-xl rounded-2xl md:flex-row">
+            
             <!-- Left Side: Login Form -->
-            <div class="flex flex-col justify-center p-8 md:p-14">
-                <span class="mb-3 text-4xl font-bold">Selamat Datang!</span>
-                <span class="font-light text-gray-500 mb-8">
-                    Silakan masuk untuk melanjutkan ke dashboard Anda
-                </span>
+            <div class="w-full md:w-1/2 p-8 md:p-12">
+                <a href="#" class="text-2xl font-bold text-primary">Buku Usaha</a>
+                <h1 class="mt-6 text-3xl font-bold text-gray-900">Selamat Datang Kembali</h1>
+                <p class="mt-2 text-gray-600">Silakan masukkan email dan password Anda.</p>
                 
-                <form id="loginForm">
-                    <div class="py-4">
-                        <label for="email" class="mb-2 text-md font-medium">Email</label>
+                <form id="loginForm" class="mt-8 space-y-5">
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-700">Email</label>
                         <input type="email" id="email" name="email"
-                            class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-primary"
-                            placeholder="contoh@gmail.com">
-                        <span id="email-error" class="text-danger text-sm mt-1 hidden">Email tidak boleh kosong.</span>
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                            placeholder="contoh@usahaku.com">
+                        <span id="email-error" class="text-danger text-xs mt-1 hidden">Email wajib diisi.</span>
                     </div>
-                    <div class="py-4">
-                        <label for="password" class="mb-2 text-md font-medium">Password</label>
-                        <input type="password" id="password" name="password"
-                            class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-primary">
-                        <span id="password-error" class="text-danger text-sm mt-1 hidden">Password tidak boleh kosong.</span>
+                    
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-700">Password</label>
+                        <div class="relative">
+                            <input type="password" id="password" name="password"
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                            <button type="button" id="password-toggle" class="absolute inset-y-0 right-0 px-3 flex items-center text-gray-500">
+                                <!-- Eye Icon -->
+                                <svg id="eye-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" /></svg>
+                                <!-- Eye Off Icon -->
+                                <svg id="eye-off-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7 .527-1.662 1.49-3.14 2.694-4.306M14 14l-4-4m-4 0a9.954 9.954 0 011.666-3.033M17.583 6.417A9.953 9.953 0 0119.542 12c-1.274 4.057-5.064 7-9.542 7a10.05 10.05 0 01-1.875-.175" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1l22 22" /></svg>
+                            </button>
+                        </div>
+                        <span id="password-error" class="text-danger text-xs mt-1 hidden">Password wajib diisi.</span>
                     </div>
 
                     <button type="submit"
-                        class="w-full bg-primary text-white p-3 rounded-lg my-6 hover:bg-black hover:text-white hover:border hover:border-gray-300 transition-colors">
-                        Masuk
+                        class="w-full flex justify-center items-center bg-primary text-white py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors disabled:bg-primary/70">
+                        <span class="btn-text">Masuk</span>
+                        <!-- Spinner -->
+                        <svg class="animate-spin h-5 w-5 text-white hidden btn-spinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
                     </button>
                 </form>
 
-                <div class="text-center text-gray-500">
-                    Belum punya akun?
-                    <a href="#" class="font-bold text-primary hover:underline">Daftar Sekarang</a>
+                <div class="mt-6 text-center text-sm">
+                    <span class="text-gray-600">Belum punya akun?</span>
+                    <a href="#" class="font-semibold text-primary hover:underline">Daftar di sini</a>
                 </div>
             </div>
 
             <!-- Right Side: Info Panel -->
-            <div class="relative bg-primary rounded-r-2xl hidden md:block">
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white p-12 text-center w-[450px]">
-                    <h2 class="text-3xl font-bold mb-4">Buku Usaha</h2>
-                    <p class="text-lg font-light leading-relaxed mb-6">Pencatatan keuangan jadi lebih mudah dan rapi.</p>
-                    <ul class="space-y-3 text-left font-light">
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 mt-1 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                            <span>Catat pemasukan & pengeluaran usaha dengan cepat.</span>
-                        </li>
-                        <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 mt-1 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                            <span>Cocok untuk laundry, warung, barbershop, dan lainnya.</span>
-                        </li>
-                         <li class="flex items-start">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 mt-1 text-green-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                            <span>Lihat ringkasan keuangan harian dalam satu dashboard.</span>
-                        </li>
-                    </ul>
+            <div class="w-full md:w-1/2 bg-primary rounded-r-2xl hidden md:flex items-center justify-center p-12">
+                <div class="text-white text-center">
+                    <!-- Illustration -->
+                     <svg class="w-48 h-48 mx-auto mb-6" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="20" y="80" width="160" height="100" rx="10" fill="white" fill-opacity="0.2"/>
+                        <rect x="35" y="100" width="40" height="60" rx="5" fill="white" fill-opacity="0.5"/>
+                        <rect x="85" y="60" width="30" height="100" rx="5" fill="#28A745" fill-opacity="0.7"/>
+                        <rect x="125" y="90" width="40" height="70" rx="5" fill="white" fill-opacity="0.5"/>
+                        <path d="M40 70C40 58.9543 48.9543 50 60 50H140C151.046 50 160 58.9543 160 70V70H40V70Z" fill="white" fill-opacity="0.3"/>
+                    </svg>
+                    <h2 class="text-3xl font-bold">Kelola Keuangan Usaha</h2>
+                    <p class="mt-2 text-white/80">Catat setiap transaksi dengan mudah dan lihat laporannya secara instan.</p>
                 </div>
             </div>
         </div>
     </div>
     
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', () => {
             const loginForm = document.getElementById('loginForm');
             const emailInput = document.getElementById('email');
             const passwordInput = document.getElementById('password');
-            const emailError = document.getElementById('email-error');
-            const passwordError = document.getElementById('password-error');
+            const passwordToggle = document.getElementById('password-toggle');
+            const eyeIcon = document.getElementById('eye-icon');
+            const eyeOffIcon = document.getElementById('eye-off-icon');
 
-            loginForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Mencegah form submit
-                let isValid = true;
-
-                // Reset error messages
-                emailError.classList.add('hidden');
-                passwordError.classList.add('hidden');
-
-                // Validasi Email
-                if (emailInput.value.trim() === '') {
-                    emailError.classList.remove('hidden');
-                    isValid = false;
+            // --- Password Visibility Toggle ---
+            passwordToggle.addEventListener('click', () => {
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    eyeIcon.classList.add('hidden');
+                    eyeOffIcon.classList.remove('hidden');
+                } else {
+                    passwordInput.type = 'password';
+                    eyeIcon.classList.remove('hidden');
+                    eyeOffIcon.classList.add('hidden');
                 }
+            });
 
-                // Validasi Password
-                if (passwordInput.value.trim() === '') {
-                    passwordError.classList.remove('hidden');
-                    isValid = false;
+            // --- Real-time Validation ---
+            function validateField(input, errorElement, message) {
+                if (input.value.trim() === '') {
+                    errorElement.textContent = message;
+                    errorElement.classList.remove('hidden');
+                    return false;
                 }
+                errorElement.classList.add('hidden');
+                return true;
+            }
 
-                if (isValid) {
-                    // Jika valid, arahkan ke halaman dashboard
-                    // Dalam aplikasi nyata, di sini akan ada proses otentikasi
-                    alert('Login berhasil! Mengarahkan ke Dashboard...');
-                    window.location.href = '#'; // Ganti dengan link dashboard.html
+            emailInput.addEventListener('blur', () => validateField(emailInput, document.getElementById('email-error'), 'Email wajib diisi.'));
+            passwordInput.addEventListener('blur', () => validateField(passwordInput, document.getElementById('password-error'), 'Password wajib diisi.'));
+
+            // --- Form Submission Logic ---
+            loginForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                
+                const isEmailValid = validateField(emailInput, document.getElementById('email-error'), 'Email wajib diisi.');
+                const isPasswordValid = validateField(passwordInput, document.getElementById('password-error'), 'Password wajib diisi.');
+
+                if (isEmailValid && isPasswordValid) {
+                    const submitButton = loginForm.querySelector('button[type="submit"]');
+                    const btnText = submitButton.querySelector('.btn-text');
+                    const spinner = submitButton.querySelector('.btn-spinner');
+
+                    // Show loading state
+                    btnText.textContent = 'Memproses...';
+                    spinner.classList.remove('hidden');
+                    submitButton.disabled = true;
+                    
+                    // Simulate API call
+                    setTimeout(() => {
+                        // On Success
+                        alert('Login berhasil! Anda akan diarahkan ke dashboard.');
+                        window.location.href = '#'; // Ganti dengan URL dashboard
+                        
+                        // Restore button state (jika login gagal)
+                        // btnText.textContent = 'Masuk';
+                        // spinner.classList.add('hidden');
+                        // submitButton.disabled = false;
+                    }, 2000);
                 }
             });
         });
