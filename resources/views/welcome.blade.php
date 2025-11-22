@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UMKM Notes - Pencatatan Keuangan Sederhana untuk Usaha Anda</title>
+    <title>Buku Usaha - Pencatatan Keuangan Sederhana untuk Usaha Anda</title>
     <meta name="description"
         content="Aplikasi web untuk mencatat pemasukan dan pengeluaran UMKM dengan mudah, cepat, dan rapi. Cocok untuk laundry, warung, barbershop, dan lainnya.">
 
@@ -40,7 +40,7 @@
         class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 transition-all duration-300 border-b border-gray-200">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold text-primary">
-                UMKM Notes
+                Buku Usaha
             </a>
 
             <div class="hidden md:flex items-center space-x-8">
@@ -88,7 +88,7 @@
                         Catat Transaksi Usaha Anda, <span class="text-primary">Jadi Lebih Profesional.</span>
                     </h1>
                     <p class="mt-4 text-lg text-secondary">
-                        UMKM Notes membantu pemilik usaha kecil mencatat pemasukan dan pengeluaran dengan cepat, rapi,
+                        Buku Usaha membantu pemilik usaha kecil mencatat pemasukan dan pengeluaran dengan cepat, rapi,
                         dan bisa diakses kapan saja.
                     </p>
                     <div class="mt-8 flex justify-center md:justify-start space-x-4">
@@ -135,7 +135,7 @@
         <section id="fitur" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Fitur Utama UMKM Notes</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Fitur Utama Buku Usaha</h2>
                     <p class="mt-3 text-secondary max-w-2xl mx-auto">Semua yang Anda butuhkan untuk mengelola keuangan
                         usaha dalam satu platform sederhana.</p>
                 </div>
@@ -237,7 +237,7 @@
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900">Apa Kata Pengguna?</h2>
-                    <p class="mt-3 text-secondary max-w-2xl mx-auto">Lihat bagaimana UMKM Notes membantu rekan-rekan
+                    <p class="mt-3 text-secondary max-w-2xl mx-auto">Lihat bagaimana Buku Usaha membantu rekan-rekan
                         pengusaha lainnya.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -295,7 +295,7 @@
                     <div class="bg-gray-50 rounded-lg border border-gray-200">
                         <button
                             class="faq-toggle w-full flex justify-between items-center text-left p-5 font-semibold text-gray-800">
-                            <span>Apakah UMKM Notes berbayar?</span>
+                            <span>Apakah Buku Usaha berbayar?</span>
                             <svg class="faq-icon w-5 h-5 transition-transform transform"
                                 xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -304,7 +304,7 @@
                             </svg>
                         </button>
                         <div class="faq-content hidden p-5 pt-0 text-secondary">
-                            Saat ini, UMKM Notes dapat digunakan secara gratis. Kami mungkin akan memperkenalkan fitur
+                            Saat ini, Buku Usaha dapat digunakan secara gratis. Kami mungkin akan memperkenalkan fitur
                             premium di masa depan, namun fitur dasar akan selalu gratis.
                         </div>
                     </div>
@@ -320,7 +320,7 @@
                             </svg>
                         </button>
                         <div class="faq-content hidden p-5 pt-0 text-secondary">
-                            Tentu saja! UMKM Notes dirancang untuk semua jenis usaha mikro, kecil, dan menengah, seperti
+                            Tentu saja! Buku Usaha dirancang untuk semua jenis usaha mikro, kecil, dan menengah, seperti
                             toko kelontong, warung makan, laundry, barbershop, bengkel, jasa freelance, dan banyak lagi.
                         </div>
                     </div>
@@ -352,7 +352,7 @@
                             </svg>
                         </button>
                         <div class="faq-content hidden p-5 pt-0 text-secondary">
-                            Ya. UMKM Notes adalah aplikasi berbasis web yang responsif, artinya tampilannya akan
+                            Ya. Buku Usaha adalah aplikasi berbasis web yang responsif, artinya tampilannya akan
                             menyesuaikan dengan perangkat yang Anda gunakan, baik itu komputer, tablet, maupun
                             smartphone. Cukup buka melalui browser di HP Anda.
                         </div>
@@ -381,7 +381,7 @@
         <div class="container mx-auto px-6 text-center">
             <div class="md:flex justify-between items-center">
                 <p class="text-gray-300 mb-4 md:mb-0">
-                    &copy; 2025 UMKM Notes. All rights reserved.
+                    &copy; 2025 Buku Usaha. All rights reserved.
                 </p>
                 <div class="space-x-6">
                     <a href="#" class="text-gray-300 hover:text-white text-sm">Kebijakan Privasi</a>
