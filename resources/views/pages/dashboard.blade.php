@@ -120,7 +120,7 @@
                                     </thead>
                                     <tbody class="divide-y">
                                         <tr>
-                                            <td class="py-3 text-sm text-gray-500">23 Nov 2025</td>
+                                            <td class="py-3 text-sm text-gray-500">23 Nov 2026</td>
                                             <td><span class="font-semibold">Laundry Kiloan</span><br><span class="text-xs text-gray-400">Pemasukan</span></td>
                                             <td class="py-3 text-right font-semibold text-success">+ Rp 50.000</td>
                                         </tr>
